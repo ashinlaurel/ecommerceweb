@@ -9,6 +9,12 @@ const orderSchema = new Schema(
     amount: {
       type: Number,
     },
+    address: String,
+    updated: Date,
+    user: {
+      type: ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );

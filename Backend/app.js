@@ -8,6 +8,7 @@ const app = express();
 
 //routes import
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 // Middlewares
 app.use(bodyParser.json());
@@ -41,6 +42,7 @@ mongoose
 
 // Routes
 app.use("/api", authRoute);
+app.use("/api", userRoute);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
