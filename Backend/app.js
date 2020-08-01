@@ -9,6 +9,8 @@ const app = express();
 //routes import
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const categoryRoute = require("./routes/category");
+const productRoute = require("./routes/product");
 
 // Middlewares
 app.use(bodyParser.json());
@@ -43,6 +45,8 @@ mongoose
 // Routes
 app.use("/api", authRoute);
 app.use("/api", userRoute);
+app.use("/api", categoryRoute);
+app.use("/api", productRoute);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 

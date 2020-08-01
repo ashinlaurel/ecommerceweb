@@ -1,5 +1,6 @@
 const User = require("../models/user");
-// const Order = require("../models/order");
+const { divide } = require("lodash");
+const Order = require("../models/order");
 
 // Getting User By ID
 exports.getUserById = (req, res, next, id) => {
@@ -16,7 +17,6 @@ exports.getUserById = (req, res, next, id) => {
 
 //
 exports.getUser = (req, res) => {
-  // TODO: Get back here for password
   req.profile.salt = undefined;
   req.profile.encry_password = undefined;
 
@@ -67,4 +67,13 @@ exports.getUserPurchaseList = (req, res) => {
       }
       return res.json(orders);
     });
+};
+
+// TODO got to finish up these purchase middleware for purchase lists
+exports.pushOrderInPurchaseList = (req, res, next) => {
+  let purchases = [];
+  req.body.order.products.forEach((product) => {
+    purchases.push({});
+  });
+  next();
 };
